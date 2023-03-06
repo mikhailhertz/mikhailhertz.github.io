@@ -276,6 +276,7 @@ const onTileMouseUp = ({ x, y }) => {
             }
         } else {
             revealUnflaggedTiles(x, y);
+            drawSprite('smile', faces, canvas.width / 2 - faces.width / 2, 0);
         }
         
     }
