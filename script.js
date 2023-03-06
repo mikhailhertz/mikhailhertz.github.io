@@ -262,13 +262,18 @@ const onTileMouseUp = ({ x, y }) => {
         });
         tile.sprite = 'minedet';
     } else {
-        tile.sprite === 'unknown' ? revealSafeTiles(x, y) : revealUnflaggedTiles(x, y);
-        if (didWin()) {
-            endGame(false);
-            drawSprite('rad', faces, canvas.width / 2 - faces.width / 2, 0);
+        if (tile.sprite === 'unknown') {
+            revealSafeTiles(x, y);
+            if (didWin()) {
+                endGame(false);
+                drawSprite('rad', faces, canvas.width / 2 - faces.width / 2, 0);
+            } else {
+                drawSprite('smile', faces, canvas.width / 2 - faces.width / 2, 0);
+            }
         } else {
-            drawSprite('smile', faces, canvas.width / 2 - faces.width / 2, 0);
+            revealUnflaggedTiles(x, y);
         }
+        
     }
     drawMinefield();
     canvas.removeEventListener('mouseup', onTileMouseUp);
