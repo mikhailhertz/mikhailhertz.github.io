@@ -195,6 +195,8 @@ const revealUnflaggedTiles = (col, row) => {
                 tile.sprite = 'nomine';
             }
         });
+    } else {
+        drawSprite('smile', faces, canvas.width / 2 - faces.width / 2, 0);
     }
 };
 
@@ -276,7 +278,6 @@ const onTileMouseUp = ({ x, y }) => {
             }
         } else {
             revealUnflaggedTiles(x, y);
-            drawSprite('smile', faces, canvas.width / 2 - faces.width / 2, 0);
         }
         
     }
