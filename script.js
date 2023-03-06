@@ -223,7 +223,11 @@ const flagTile = (x, y) => {
     }
     drawMinefield();
     context.clearRect(0, 0, digits.width * 2, digits.height);
-    drawNumber(mines, false, 2, 8, 0);
+    if (mines < 0) {
+        drawNumber(0, false, 2, 8, 0);
+    } else {
+        drawNumber(mines, false, 2, 8, 0);
+    }
     if (didWin()) {
         endGame(false);
     }
